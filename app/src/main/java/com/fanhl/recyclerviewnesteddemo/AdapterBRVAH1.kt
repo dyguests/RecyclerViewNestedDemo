@@ -3,30 +3,16 @@ package com.fanhl.recyclerviewnesteddemo
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
 import kotlinx.android.synthetic.main.item_view_1.view.*
 
-class AdapterBRVAH1 : RecyclerView.Adapter<AdapterBRVAH1.ViewHolder>() {
-    var data = ArrayList<Int>()
-        set(value) {
-            field.clear()
-            field.addAll(value)
-            notifyDataSetChanged()
-        }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_view_1, parent, false))
+class AdapterBRVAH1 : BaseQuickAdapter<Int, AdapterBRVAH1.ViewHolder>(R.layout.item_view_1) {
+    override fun convert(helper: ViewHolder?, item: Int?) {
+        helper?.bind(item ?: return)
     }
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(data[position])
-    }
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : BaseViewHolder(itemView) {
         private val adapter2 by lazy { Adapter2() }
 
         init {
