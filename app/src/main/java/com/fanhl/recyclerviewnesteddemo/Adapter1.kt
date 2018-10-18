@@ -32,12 +32,24 @@ class Adapter1 : RecyclerView.Adapter<Adapter1.ViewHolder>() {
         init {
             itemView.apply {
                 setOnClickListener { this@Adapter1.notifyItemChanged(adapterPosition) }
-                recycler_view_2.adapter = adapter2
+//                recycler_view_2.adapter = adapter2
             }
         }
 
         fun bind(data: Int) {
-            data
+            itemView.apply {
+                recycler_view_2_container.apply {
+                    recycler_view_2_container.visibility = View.VISIBLE
+
+                    removeAllViews()
+
+                    val recyclerView = LayoutInflater.from(context).inflate(R.layout.partial_recycler_view_2, null, false) as RecyclerView
+
+                    addView(recyclerView)
+
+                    recyclerView.adapter = adapter2
+                }
+            }
         }
     }
 }

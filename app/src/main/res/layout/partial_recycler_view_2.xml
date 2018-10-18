@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v7.widget.RecyclerView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_view_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00f"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    app:layoutManager="@string/linear_layout_manager"
+    tools:listitem="@layout/item_view_2"
+    tools:showIn="@layout/item_view_1"/>
